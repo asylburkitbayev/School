@@ -3,7 +3,7 @@ from .models import Teacher, Lesson
 
 
 class TeacherAdmin(admin.ModelAdmin):
-    list_display = ['full_name', 'adress_teacher', 'phone']
+    list_display = ['full_name', 'adress_teacher', 'phone', 'image']
 
 
 class LessonAdmin(admin.ModelAdmin):
