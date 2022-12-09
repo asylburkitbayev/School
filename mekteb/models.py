@@ -12,6 +12,9 @@ class Mekteb(models.Model):
     students = models.ForeignKey(Student, on_delete=models.SET_NULL, null=True, verbose_name='Ученики')
     lessons = models.ForeignKey(Lesson, on_delete=models.SET_NULL, null=True, verbose_name='Уроки')
 
+    def __str__(self):
+        return f'{self.director}'
+
     class Meta:
         ordering = ['klass']
         verbose_name = 'Школа'

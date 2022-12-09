@@ -13,6 +13,9 @@ class Director(models.Model):
                              validators=[validate_phone_number],
                              help_text='введите свои данные.')
 
+    def __str__(self):
+        return f'{self.last_name} {self.first_name} {self.third_name}'
+
     class Meta:
         ordering = ['first_name']
         verbose_name = 'директор'
@@ -37,6 +40,9 @@ class Headteacher(models.Model):
                              unique=True,
                              validators=[validate_phone_number],
                              help_text='введите свои данные.')
+
+    def __str__(self):
+        return f'{self.last_name} {self.first_name} {self.third_name}'
 
     class Meta:
         ordering = ['first_name']
