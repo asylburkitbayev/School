@@ -8,7 +8,7 @@ class GradeAdmin(admin.ModelAdmin):
 
 
 class StudentAdmin(admin.ModelAdmin):
-    list_display = ['littera', 'number_of_grade']
+    list_display = ['klass', 'last_name']
 
 
 admin.site.register(Grade, GradeAdmin)
