@@ -11,3 +11,8 @@ def validate_phone_number(phone: str):
     for i in phone:
         if i not in numbers:
             raise ValidationError(f'Телефонный номер не может содержать "{i}"!')
+
+
+def validate_grade(number_of_grade: int):
+    if not 0 < number_of_grade <= 12:
+        raise ValidationError('Класс может быть от 1 до 12')

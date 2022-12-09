@@ -1,14 +1,18 @@
 from django.contrib.auth.models import User
 from django.db import models
 from teacher.models import Teacher
-from teacher.utils import validate_phone_number
+from teacher.utils import validate_phone_number, validate_grade
 
 
 class Grade(models.Model):
-    littera = models.CharField(max_length=2, verbose_name='Буква класса')
-    number_of_grade = models.PositiveIntegerField(verbose_name='Номер класса')
+    littera = models.CharField(max_length=1, verbose_name='Буква класса')
+    number_of_grade = models.PositiveIntegerField(validators=[validate_grade],verbose_name='Номер класса')
     classroom_teacher: Teacher = models.ForeignKey(Teacher, on_delete=models.SET_NULL, null=True,
                                                    verbose_name='Классная руководительница')
+
+    def save(self, *args, **kwargs):
+        self.littera = self.littera.upper()
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f'{self.number_of_grade} {self.littera}'
