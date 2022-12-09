@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'director.apps.DirectorConfig',
     'teacher.apps.TeacherConfig',
     'grade.apps.GradeConfig',
+    'mekteb.apps.MektebConfig',
 
 ]
 
