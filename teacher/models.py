@@ -30,7 +30,6 @@ class Teacher(models.Model):
         return str(self.first_name) + ' ' + str(self.last_name)
 
 
-
 class Lesson(models.Model):
     name_lesson = models.CharField(max_length=100, verbose_name='Название урока')
     teacher: Teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name='teacher_name', verbose_name='Учитель')
